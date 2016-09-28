@@ -4,16 +4,21 @@
   "description": "data structures",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --reporter spec src/**/*.spec.js"
+    "test": "mocha --reporter spec src/**/*.spec.js",
+    "inspect": "node-inspector",
+    "mocha-debug": "mocha src/**/*.spec.js --debug-brk",
+    "test-debug": "npm-run-all --parallel inspect mocha-debug"
   },
   "keywords": [],
-  "engines" : {
-    "node" : ">=6.1.0"
+  "engines": {
+    "node": ">=6.1.0"
   },
   "author": "Deyan Yanakiev <kliomba@abv.bg>",
   "license": "MIT",
   "devDependencies": {
     "chai": "^3.5.0",
-    "mocha": "^3.1.0"
+    "mocha": "^3.1.0",
+    "node-inspector": "^0.12.8",
+    "npm-run-all": "^3.1.0"
   }
 }
