@@ -60,7 +60,7 @@ class LinkedList {
   toReversedArray() {
     let reversed = [];
 
-    this._reverseRecursion(this.head, reversed);
+    this._createReversedArray(this.head, reversed);
 
     return reversed;
   }
@@ -81,6 +81,12 @@ class LinkedList {
     }
 
     this.head = prev;
+    return this;
+  }
+
+  reverseRecursive() {
+    this.tail = this._reverseListRecursive(this.head);
+
     return this;
   }
 
@@ -162,13 +168,27 @@ class LinkedList {
     return this.size--;
   }
 
-  _reverseRecursion(node, array) {
+  _createReversedArray(node, array) {
     if (!node) {
       return;
     }
 
-    this._reverseRecursion(node.next, array);
+    this._createReversedArray(node.next, array);
     array.push(node.value);
+  }
+
+  _reverseListRecursive(node) {
+    if (!(node && node.next)) {
+      this.head = node;
+      return node;
+    }
+
+    let current = this._reverseListRecursive(node.next);
+
+    current.next = node;
+    node.next = null;
+
+    return node;
   }
 }
 
