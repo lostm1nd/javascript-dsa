@@ -62,6 +62,25 @@ class LinkedList {
     return result;
   }
 
+  reverse() {
+    let prev = null;
+    let current = this.head;
+    let next = null;
+
+    this.tail = current;
+
+    while (current) {
+      next = current.next;
+      current.next = prev;
+
+      prev = current;
+      current = next;
+    }
+
+    this.head = prev;
+    return this;
+  }
+
   _insertAtStart(node) {
     if (this.head === null) {
       this.head = node;

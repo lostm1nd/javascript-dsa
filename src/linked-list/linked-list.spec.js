@@ -24,6 +24,10 @@ describe("LinkedList", () => {
     expect(list.toArray).to.be.a('function');
   });
 
+  it("should define a reverse function", () => {
+    expect(list.reverse).to.be.a('function');
+  });
+
   it("should add to the tail of the list and not change the head", () => {
     list.add(1);
     expect(list.head.value).to.equal(1);
@@ -233,5 +237,41 @@ describe("LinkedList", () => {
 
     list.remove(1);
     expect(list.toArray()).to.deep.equal([]);
+  });
+
+  it("should reverse a list with 4 nodes and adjust the head and the tail", () => {
+    list.add(1);
+    list.add(3);
+    list.add(5);
+    list.add(7);
+    expect(list.head.value).to.equal(1);
+    expect(list.tail.value).to.equal(7);
+    expect(list.toArray()).to.deep.equal([1, 3, 5, 7]);
+
+    list.reverse();
+    expect(list.head.value).to.equal(7);
+    expect(list.tail.value).to.equal(1);
+    expect(list.toArray()).to.deep.equal([7, 5, 3, 1]);
+  });
+
+  it("should reverse an empty list without errors", () => {
+    expect(list.reverse.bind(list)).to.not.throw(Error, '', 'should not throw when reversing an empty list');
+  });
+
+  it("should reverse a list with 1 element and adjust the head and the tail", () => {
+    list.add(42);
+    expect(list.head.value).to.equal(42);
+    expect(list.tail.value).to.equal(42);
+    expect(list.toArray()).to.deep.equal([42]);
+
+    list.reverse();
+    expect(list.head.value).to.equal(42);
+    expect(list.tail.value).to.equal(42);
+    expect(list.toArray()).to.deep.equal([42]);
+
+    list.add(88);
+    expect(list.head.value).to.equal(42);
+    expect(list.tail.value).to.equal(88);
+    expect(list.toArray()).to.deep.equal([42, 88]);
   });
 });
