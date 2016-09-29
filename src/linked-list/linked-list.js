@@ -49,16 +49,11 @@ class LinkedList {
     let result = [];
     let node = this.head;
 
-    if (!node) {
-      return result;
-    }
-
-    while (node.next) {
+    while (node) {
       result.push(node.value);
       node = node.next;
     }
 
-    result.push(node.value);
     return result;
   }
 

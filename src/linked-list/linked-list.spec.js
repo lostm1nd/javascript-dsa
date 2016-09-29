@@ -118,7 +118,7 @@ describe("LinkedList", () => {
     expect(list.size).to.equal(2);
   });
 
-  it("should have correct representation as an array", () => {
+  it("should have correct representation as an array !important", () => {
     list.add(1);
     list.add(3);
     list.add(5);
