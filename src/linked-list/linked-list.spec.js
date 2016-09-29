@@ -28,6 +28,10 @@ describe("LinkedList", () => {
     expect(list.reverse).to.be.a('function');
   });
 
+  it("should define a toReversedArray function", () => {
+    expect(list.toReversedArray).to.be.a('function');
+  });
+
   it("should add to the tail of the list and not change the head", () => {
     list.add(1);
     expect(list.head.value).to.equal(1);
@@ -273,5 +277,24 @@ describe("LinkedList", () => {
     expect(list.head.value).to.equal(42);
     expect(list.tail.value).to.equal(88);
     expect(list.toArray()).to.deep.equal([42, 88]);
+  });
+
+  it("should return a reversed array representation without modifying the list", () => {
+    list.add(1);
+    list.add(3);
+    list.add(5);
+    expect(list.head.value).to.equal(1);
+    expect(list.tail.value).to.equal(5);
+    expect(list.toArray()).to.deep.equal([1, 3, 5]);
+
+    expect(list.toReversedArray()).to.deep.equal([5, 3, 1]);
+    expect(list.head.value).to.equal(1);
+    expect(list.tail.value).to.equal(5);
+  });
+
+  it("should not throw an error when creating reversed array with 1 element", () => {
+    list.add(42);
+
+    expect(list.toReversedArray.bind(list)).to.not.throw(Error, '', 'should create reversed array with 1 element');
   });
 });

@@ -57,6 +57,14 @@ class LinkedList {
     return result;
   }
 
+  toReversedArray() {
+    let reversed = [];
+
+    this._reverseRecursion(this.head, reversed);
+
+    return reversed;
+  }
+
   reverse() {
     let prev = null;
     let current = this.head;
@@ -152,6 +160,15 @@ class LinkedList {
     previous.next = toRemove.next;
     toRemove = null;
     return this.size--;
+  }
+
+  _reverseRecursion(node, array) {
+    if (!node) {
+      return;
+    }
+
+    this._reverseRecursion(node.next, array);
+    array.push(node.value);
   }
 }
 
