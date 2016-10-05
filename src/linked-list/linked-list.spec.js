@@ -1,42 +1,42 @@
 const expect = require('chai').expect;
 const LinkedList = require('./linked-list');
 
-describe("LinkedList", () => {
+describe('LinkedList', () => {
   let list;
 
   beforeEach(() => {
     list = new LinkedList();
   });
 
-  it("should define an add function", () => {
+  it('should define an add function', () => {
     expect(list.add).to.be.a('function');
   });
 
-  it("should define an insert function", () => {
+  it('should define an insert function', () => {
     expect(list.insert).to.be.a('function');
   });
 
-  it("should define a remove function", () => {
+  it('should define a remove function', () => {
     expect(list.remove).to.be.a('function');
   });
 
-  it("should define a toArray function", () => {
+  it('should define a toArray function', () => {
     expect(list.toArray).to.be.a('function');
   });
 
-  it("should define a reverse function", () => {
+  it('should define a reverse function', () => {
     expect(list.reverse).to.be.a('function');
   });
 
-  it("should define a reverseRecursive function", () => {
+  it('should define a reverseRecursive function', () => {
     expect(list.reverseRecursive).to.be.a('function');
   });
 
-  it("should define a toReversedArray function", () => {
+  it('should define a toReversedArray function', () => {
     expect(list.toReversedArray).to.be.a('function');
   });
 
-  it("should add to the tail of the list and not change the head", () => {
+  it('should add to the tail of the list and not change the head', () => {
     list.add(1);
     expect(list.head.value).to.equal(1);
     expect(list.tail.value).to.equal(1);
@@ -50,7 +50,7 @@ describe("LinkedList", () => {
     expect(list.tail.value).to.equal(3);
   });
 
-  it("should increase size when item is added", () => {
+  it('should increase size when item is added', () => {
     expect(list.size).to.equal(0);
 
     list.add(3);
@@ -60,7 +60,7 @@ describe("LinkedList", () => {
     expect(list.size).to.equal(2);
   });
 
-  it("should insert at the head when passed index 0 and not change the tail", () => {
+  it('should insert at the head when passed index 0 and not change the tail', () => {
     list.add(1);
     expect(list.head.value).to.equal(1);
     expect(list.tail.value).to.equal(1);
@@ -74,7 +74,7 @@ describe("LinkedList", () => {
     expect(list.tail.value).to.equal(1);
   });
 
-  it("should insert at the head when passed negative index and not change the tail", () => {
+  it('should insert at the head when passed negative index and not change the tail', () => {
     list.add(1);
     expect(list.head.value).to.equal(1);
     expect(list.tail.value).to.equal(1);
@@ -88,7 +88,7 @@ describe("LinkedList", () => {
     expect(list.tail.value).to.equal(1);
   });
 
-  it("should insert at the tail when passed size as index and not change the head", () => {
+  it('should insert at the tail when passed size as index and not change the head', () => {
     list.add(1);
     expect(list.head.value).to.equal(1);
     expect(list.tail.value).to.equal(1);
@@ -102,7 +102,7 @@ describe("LinkedList", () => {
     expect(list.tail.value).to.equal(3);
   });
 
-  it("should insert at the tail when passed greater than the size index and not change the head", () => {
+  it('should insert at the tail when passed greater than the size index and not change the head', () => {
     list.add(1);
     expect(list.head.value).to.equal(1);
     expect(list.tail.value).to.equal(1);
@@ -116,7 +116,7 @@ describe("LinkedList", () => {
     expect(list.tail.value).to.equal(3);
   });
 
-  it("should increase size when item is inserted", () => {
+  it('should increase size when item is inserted', () => {
     expect(list.size).to.equal(0);
 
     list.insert(3, 0);
@@ -126,7 +126,7 @@ describe("LinkedList", () => {
     expect(list.size).to.equal(2);
   });
 
-  it("should have correct representation as an array !important", () => {
+  it('should have correct representation as an array !important', () => {
     list.add(1);
     list.add(3);
     list.add(5);
@@ -142,7 +142,7 @@ describe("LinkedList", () => {
     expect(list.toArray()).to.deep.equal([2, 1, 3, 5, 42, 66]);
   });
 
-  it("should insert between head and tail with index greater than 0 and smaller than size", () => {
+  it('should insert between head and tail with index greater than 0 and smaller than size', () => {
     list.add(1);
     list.add(3);
     list.add(5);
@@ -156,7 +156,7 @@ describe("LinkedList", () => {
     expect(list.toArray()).to.deep.equal([1, 2, 3, 4, 5]);
   });
 
-  it("should decrease size on remove", () => {
+  it('should decrease size on remove', () => {
     list.add(3);
     list.add(5);
     list.add(8);
@@ -175,7 +175,7 @@ describe("LinkedList", () => {
     expect(list.size).to.equal(0);
   });
 
-  it("should remove the head when passing index 0 or less", () => {
+  it('should remove the head when passing index 0 or less', () => {
     list.add(3);
     list.add(5);
     list.add(8);
@@ -199,7 +199,7 @@ describe("LinkedList", () => {
     expect(list.size).to.equal(0);
   });
 
-  it("should remove the tail when passing index equal to the size or greater", () => {
+  it('should remove the tail when passing index equal to the size or greater', () => {
     list.add(3);
     list.add(5);
     list.add(8);
@@ -223,7 +223,7 @@ describe("LinkedList", () => {
     expect(list.size).to.equal(0);
   });
 
-  it("should remove between head and tail with index greater than 0 and smaller than size", () => {
+  it('should remove between head and tail with index greater than 0 and smaller than size', () => {
     list.add(3);
     list.add(1);
     list.add(5);
@@ -247,7 +247,7 @@ describe("LinkedList", () => {
     expect(list.toArray()).to.deep.equal([]);
   });
 
-  it("should reverse a list with 4 nodes and adjust the head and the tail", () => {
+  it('should reverse a list with 4 nodes and adjust the head and the tail', () => {
     list.add(1);
     list.add(3);
     list.add(5);
@@ -262,11 +262,11 @@ describe("LinkedList", () => {
     expect(list.toArray()).to.deep.equal([7, 5, 3, 1]);
   });
 
-  it("should reverse an empty list without errors", () => {
+  it('should reverse an empty list without errors', () => {
     expect(list.reverse.bind(list)).to.not.throw(Error, '', 'should not throw when reversing an empty list');
   });
 
-  it("should reverse a list with 1 element and adjust the head and the tail", () => {
+  it('should reverse a list with 1 element and adjust the head and the tail', () => {
     list.add(42);
     expect(list.head.value).to.equal(42);
     expect(list.tail.value).to.equal(42);
@@ -283,7 +283,7 @@ describe("LinkedList", () => {
     expect(list.toArray()).to.deep.equal([42, 88]);
   });
 
-  it("should reverseRecursive a list with 4 nodes and adjust the head and the tail", () => {
+  it('should reverseRecursive a list with 4 nodes and adjust the head and the tail', () => {
     list.add(1);
     list.add(3);
     list.add(5);
@@ -298,11 +298,11 @@ describe("LinkedList", () => {
     expect(list.toArray()).to.deep.equal([7, 5, 3, 1]);
   });
 
-  it("should reverseRecursive an empty list without errors", () => {
+  it('should reverseRecursive an empty list without errors', () => {
     expect(list.reverseRecursive.bind(list)).to.not.throw(Error, '', 'should not throw when reversing an empty list');
   });
 
-  it("should reverseRecursive a list with 1 element and adjust the head and the tail", () => {
+  it('should reverseRecursive a list with 1 element and adjust the head and the tail', () => {
     list.add(42);
     expect(list.head.value).to.equal(42);
     expect(list.tail.value).to.equal(42);
@@ -319,7 +319,7 @@ describe("LinkedList", () => {
     expect(list.toArray()).to.deep.equal([42, 88]);
   });
 
-  it("should return a reversed array representation without modifying the list", () => {
+  it('should return a reversed array representation without modifying the list', () => {
     list.add(1);
     list.add(3);
     list.add(5);
@@ -332,7 +332,7 @@ describe("LinkedList", () => {
     expect(list.tail.value).to.equal(5);
   });
 
-  it("should not throw an error when creating reversed array with 1 element", () => {
+  it('should not throw an error when creating reversed array with 1 element', () => {
     list.add(42);
 
     expect(list.toReversedArray.bind(list)).to.not.throw(Error, '', 'should create reversed array with 1 element');
