@@ -1,4 +1,4 @@
-const isOperator = require('../utils/is-operator');
+const isOperator = require('../utils/operators').isOperator;
 
 const calculate = (opertaror, second, first) => {
   first = +first;
