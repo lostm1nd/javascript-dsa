@@ -1,6 +1,4 @@
-const isOperator = (token) => (
-  token === '+' || token === '-' || token === '*' || token === '/'
-);
+const isOperator = require('../utils/is-operator');
 
 const calculate = (opertaror, second, first) => {
   first = +first;
