@@ -29,4 +29,9 @@ describe('Merge Sort', () => {
       .to.deep.equal([-1, 0, 1, 11, 19, 23, 36, 42, 255, 1024]);
   });
 
+  it('should return a sorted array with duplicates', () => {
+    expect(mergeSort([42, 11, 42, -1, 11, 1]))
+      .to.deep.equal([-1, 1, 11, 11, 42, 42]);
+  });
+
 });
